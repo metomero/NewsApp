@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="article"
+            type="com.example.newsapp.data.components.network.repository.news.model.Article" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_xlarge"
+        android:layout_marginVertical="@dimen/margin_xlarge"
+        card_view:cardCornerRadius="@dimen/margin_medium">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/news_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                card_view:srcCompat="@drawable/news"
+                app:loadImage="@{article.urlToImage}"/>
+
+            <TextView
+                android:id="@+id/news_source"
+                style="@style/Normal_Black_17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_medium"
+                android:gravity="center|start"
+                android:text="@{article.source.name}" />
+
+
+            <TextView
+                android:id="@+id/news_overview"
+                style="@style/Normal_Black_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_medium"
+                android:gravity="center|start"
+                android:text="@{article.description}" />
+
+            <TextView
+                android:id="@+id/news_date"
+                style="@style/Normal_Black_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_medium"
+                android:gravity="center|start"
+                android:text="@{article.publishedAt}" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="articleDetail"
+            type="com.example.newsapp.data.components.network.repository.news.model.Article" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".ui.screen.newsdetail.view.NewsDetailFragment">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                app:loadImage="@{articleDetail.urlToImage}" />
+
+            <TextView
+                style="@style/Bold_Black_17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                android:text="@{articleDetail.title}" />
+
+            <TextView
+                style="@style/Normal_Black_17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                android:text="@{articleDetail.source.name}" />
+
+            <TextView
+                style="@style/Normal_Black_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                android:text="@{articleDetail.content}" />
+
+            <TextView
+                android:id="@+id/newsUrl"
+                style="@style/Normal_Blue_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                android:text="@{articleDetail.url}"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
